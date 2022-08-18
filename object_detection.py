@@ -190,26 +190,19 @@ class DfLabeler:
         return word_df
 
 if __name__ == '__main__':
-    """
-    Run the script with your own parameters. If you import the code as a module
-    these would be the commands you have to run
-    """
 
-    # Define working folder
-    os.chdir('C:/users/tieskens/dropbox/wolfs/haaien')
 
-    # path to Google credentials JSON
-    auth_file = 'google_key/zandmotor-288919-b347f422030c.json'
+    # path to Google credentials JSON, please obtain from Google
+    auth_file = 'google_key/xxxxxxxxxxxx.json'
 
     # path to csv with data with photos contianing url column
-    data_csv = 'output/maarten_flickr_simple.csv'
+    data_csv = 'output/output_file.csv'
 
     # path to csv that will be created with labels added
-    output_path = 'data/maarten_labeled.csv'
-    output_path_words = 'data/maarten_words.csv'
+    output_path = 'data/output_labeled.csv'
+    output_path_words = 'data/output_words.csv'
 
     # run the labeler
-
     lab = DfLabeler(data_csv, auth_file, url_col='url_sq', url_sq=True)
     labels = lab.get_labels_from_df()
     df = lab.store_labels(labels)
